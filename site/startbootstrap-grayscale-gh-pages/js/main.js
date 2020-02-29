@@ -14,16 +14,16 @@ const avgCarbonE = 19.64;
 document.getElementById("output").style.display = "none";
 
 // Create/Init map
-//var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
 // Create a DirectionsService object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
 
 // Create a DirectionsRenderer object which we will use to display the route
-//var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsDisplay = new google.maps.DirectionsRenderer();
 
 // Bind the DirectionsRenderer to the map
-//directionsDisplay.setMap(map);
+directionsDisplay.setMap(map);
 
 // Define calcRoute function
 function calcRoute() {
@@ -57,6 +57,7 @@ function calcRoute() {
           " Lbs.</h1></div>"
       );
       document.getElementById("output").style.display = "block";
+      //document.getElementById("linked").href="http://www.google.com";
 
       console.log();
 

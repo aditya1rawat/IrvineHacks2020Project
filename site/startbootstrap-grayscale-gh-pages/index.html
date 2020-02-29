@@ -24,6 +24,39 @@
 
 </head>
 
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .map-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+    font-family: 'Roboto','sans-serif';
+    margin: 10px;
+    padding-right: 5px;
+    /* Hide the control initially, to prevent it from appearing
+       before the map loads. */
+    display: none;
+  }
+  /* Display the control once it is inside the map. */
+  #map .map-control { display: block; }
+
+  .selector-control {
+    font-size: 14px;
+    line-height: 30px;
+    vertical-align: baseline;
+  }
+</style>
+
 <body id="page-top">
 
   <!-- Navigation -->
@@ -151,6 +184,16 @@
                 <h4 id="out" class="text-white"> </h4>
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="calcRoute();">Submit</button>
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="clearRoute();">Clear</button>
+
+                <br>
+                <br>
+                <br>
+                <div id="google-map" class="map-container" style="width: 950px; height: 500px;" >
+                  <iframe src="https://maps.google.com/maps?q=irvine&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                    style="border:0" allowfullscreen></iframe>
+                </div>
+
+
               </div>
               <div class="col-md-6">
                 <br>
@@ -158,6 +201,8 @@
                 <br>
                 <br>
                 <div id="output" class="result-table text-white"></div>
+        
+
               </div>
             </div>
           </div>
