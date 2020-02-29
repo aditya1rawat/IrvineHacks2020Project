@@ -12,11 +12,12 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
@@ -29,7 +30,9 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Carbon (E) Missions</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -66,7 +69,9 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Find Your Effect On The Environment</h2>
-          <p class="text-white-50">Today, the entire world relies on transportation, but sometimes we forget what we are doing to the environment. Our mission is to bring awareness to this problem by making you track your effects.</p>
+          <p class="text-white-50">Today, the entire world relies on transportation, but sometimes we forget what we are
+            doing to the environment. Our mission is to bring awareness to this problem by making you track your
+            effects.</p>
         </div>
       </div>
       <img src="img/cars_pollution_large.jpg" class="img-fluid" width="500px" alt="car cars_pollution_large">
@@ -105,7 +110,8 @@
                 <hr class="d-none d-lg-block mb-0 ml-0">
                 <br>
                 <form class="form-inline d-flex">
-                  <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="location-1" placeholder="Enter Your Location...">
+                  <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="location-1"
+                    placeholder="Enter Your Location...">
                 </form>
               </div>
             </div>
@@ -126,8 +132,9 @@
                 <hr class="d-none d-lg-block mb-0 mr-0">
                 <br>
                 <form class="form-inline d-flex">
-                  <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="location-2" placeholder="Enter Your Desired Destination...">
-                </form>                
+                  <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="location-2"
+                    placeholder="Enter Your Desired Destination...">
+                </form>
               </div>
             </div>
           </div>
@@ -141,20 +148,26 @@
                 <hr class="d-none d-lg-block mb-0 ml-0">
                 <br>
 
-                <h4 id = "out" class="text-white"> </h4>
-
-                <div id="output" class="result-table"></div>
-
-                <div class="row">
-                  <button class="button" type="button" onclick="clearRoute();">Clear</button>
-                  <button class="button" type="button" onclick="calcRoute();">Submit</button>
-              </div>     
-              
+                <h4 id="out" class="text-white"> </h4>
+                <button class="button btn btn-primary mx-auto" type="submit" onclick="calcRoute();">Submit</button>
+                <button class="button btn btn-primary mx-auto" type="submit" onclick="clearRoute();">Clear</button>
+              </div>
+              <div class="col-md-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="output" class="result-table text-white"></div>
               </div>
             </div>
           </div>
+
         </div>
+
       </div>
+
+    </div>
+
     </div>
   </section>
 
@@ -168,7 +181,8 @@
           <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
 
           <form class="form-inline d-flex">
-            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+            <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail"
+              placeholder="Enter email address...">
             <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
           </form>
 
@@ -230,9 +244,10 @@
   <!-- Footer -->
   <footer class="bg-black small text-center text-white-50">
     <div class="container">
-      Copyright &copy; Carbon Emissions <script type="text/javascript">
-  document.write(new Date().getFullYear());
-</script>
+      Copyright &copy; Carbon Emissions
+      <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script>
     </div>
   </footer>
 
@@ -253,7 +268,8 @@
 
 </body>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgrtrEe8fveSLFTHYg5hphVlqQ0yqnJcs&libraries=places"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgrtrEe8fveSLFTHYg5hphVlqQ0yqnJcs&libraries=places"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/main.js"></script>
 
