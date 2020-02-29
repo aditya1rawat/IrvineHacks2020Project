@@ -1,9 +1,14 @@
 var myLatLng = { lat: 0.0, lng: 0.0 };
 var mapOptions = {
-    center: myLatLng,
-    zoom: 1,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+  center: myLatLng,
+  zoom: 1,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
 };
+
+const avgMpg = 24.9;
+const avgCarbonE = 19.64;
+// const distnaceString = result.routes[0].legs[0].distance.text;
+// const convertToNum =
 
 // Hide result box
 document.getElementById("output").style.display = "none";
@@ -20,64 +25,71 @@ var directionsService = new google.maps.DirectionsService();
 // Bind the DirectionsRenderer to the map
 //directionsDisplay.setMap(map);
 
-
 // Define calcRoute function
 function calcRoute() {
-    //create request
+  //create request
+  //console.log("Hello");
 
-    //console.log("Hello");
+  var request = {
+    origin: document.getElementById("location-1").value,
+    destination: document.getElementById("location-2").value,
+    travelMode: google.maps.TravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.IMPERIAL
+  };
 
-    var request = {
-        origin: document.getElementById("location-1").value,
-        destination: document.getElementById("location-2").value,
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.IMPERIAL
+  // Routing
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      let text = result.routes[0].legs[0].distance.text;
+      let replace = text.replace(",", "")
+      let convertToNum = parseInt(replace);
+    //   console.log(convertToNum);
+      let carbonEm = (convertToNum / avgMpg) * avgCarbonE;
+      //Get distance and time
+
+      $("#output").html(
+        "<div class='result-table'> <h3>Driving Distance: " +
+          result.routes[0].legs[0].distance.text +
+          ".<br />Duration: " +
+          result.routes[0].legs[0].duration.text +
+          ". <br /> Carbon Emission: " +
+          Math.round(carbonEm) +
+          " Lbs.</h1></div>"
+      );
+      document.getElementById("output").style.display = "block";
+
+      console.log();
+
+      //display route
+      directionsDisplay.setDirections(result);
+    } else {
+      //delete route from map
+      directionsDisplay.setDirections({ routes: [] });
+      //center map in London
+      map.setCenter(myLatLng);
+
+      //Show error message
+
+      alert("Can't find road! Please try again!");
+      clearRoute();
     }
-
-    // Routing
-    directionsService.route(request, function (result, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-
-            //Get distance and time            
-            
-            $("#output").html("<div class='result-table'> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text + ".</div>");
-            document.getElementById("output").style.display = "block";
-
-            console.log()
-
-            //display route
-            directionsDisplay.setDirections(result);
-        } else {
-            //delete route from map
-            directionsDisplay.setDirections({ routes: [] });
-            //center map in London
-            map.setCenter(myLatLng);
-
-            //Show error message           
-           
-            alert("Can't find road! Please try again!");
-            clearRoute();
-        }
-    });
-
+  });
 }
 
 // Clear results
 
-function clearRoute(){
-    document.getElementById("output").style.display = "none";
-    document.getElementById("location-1").value = "";
-    document.getElementById("location-2").value = "";
-    directionsDisplay.setDirections({ routes: [] });
-    
+function clearRoute() {
+  document.getElementById("output").style.display = "none";
+  document.getElementById("location-1").value = "";
+  document.getElementById("location-2").value = "";
+  directionsDisplay.setDirections({ routes: [] });
 }
 
 // Create autocomplete objects for all inputs
 
 var options = {
-    types: ['(cities)']
-}
-
+  types: ["(cities)"]
+};
 
 var input1 = document.getElementById("location-1");
 var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
