@@ -55,6 +55,56 @@
     line-height: 30px;
     vertical-align: baseline;
   }
+
+  .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.dropdown:hover #arrow {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+          transition:         transform .25s ease-in-out;
+}
+#arrow:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 </style>
 
 <div id="style-selector-control" class="map-control">
@@ -192,6 +242,18 @@
                 <br>
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="calcRoute();">Submit</button>
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="clearRoute();">Clear</button>
+                <div class="dropdown">
+                  <button id="option" class="button btn btn-primary mx-auto"><img id="arrow" src="img/dropdown.png" width="15px" height="15px" /></button>
+                  <div class="dropdown-content">
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(1);">Small Vehicle</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(2);">SUV</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(3);">Pickup Truck</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(4);">All Electric</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(5);">Hybrid</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(6);">Luxury</button>
+                  </div>
+                </div>
+              
 
                 <br>
                 <br>

@@ -5,7 +5,7 @@ var mapOptions = {
   mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
-const avgMpg = 24.9;
+var avgMpg = 24.9;
 const avgCarbonE = 19.64;
 // const distnaceString = result.routes[0].legs[0].distance.text;
 // const convertToNum =
@@ -24,6 +24,47 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 
 // Bind the DirectionsRenderer to the map
 directionsDisplay.setMap(map);
+
+
+function inputVehicle(a){
+    if (a == 1){
+        console.log("Small Vehicle")
+        document.getElementById("option").innerText = "Small Vehicle";
+        avgMpg = 24.2;
+    }
+
+    if (a == 2){
+        console.log("SUV")
+        document.getElementById("option").innerText = "SUV";
+        avgMpg = 32;
+    }
+
+    if (a == 3){
+        console.log("Pickup Truck");
+        document.getElementById("option").innerText = "Pickup Truck";
+        avgMpg = 28.6;
+    }
+
+    if (a == 4){
+        console.log("All Electric");
+        document.getElementById("option").innerText = "All Electric";
+        avgMpg = 136;
+    }
+
+    if (a == 5){
+        console.log("Hybrid");
+        document.getElementById("option").innerText = "Hybrid";
+        avgMpg = 56;
+    }
+
+    if (a == 6){
+        console.log("Luxury");
+        document.getElementById("option").innerText = "Luxury";
+        avgMpg = 41;
+    }
+
+}
+
 
 // Define calcRoute function
 function calcRoute() {
@@ -80,10 +121,12 @@ function calcRoute() {
 // Clear results
 
 function clearRoute() {
+  document.getElementById("option").innerText = "Select Vehicle Type";
   document.getElementById("output").style.display = "none";
   document.getElementById("location-1").value = "";
   document.getElementById("location-2").value = "";
   directionsDisplay.setDirections({ routes: [] });
+  
 }
 
 // Create autocomplete objects for all inputs
