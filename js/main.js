@@ -14,7 +14,10 @@ const avgCarbonE = 19.64;
 document.getElementById("output").style.display = "none";
 
 // Create/Init map
-var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+var map = new google.maps.Map(
+  document.getElementById("google-map"),
+  mapOptions
+);
 
 // Create a DirectionsService object to use the route method and get a result for our request
 var directionsService = new google.maps.DirectionsService();
@@ -25,46 +28,43 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 // Bind the DirectionsRenderer to the map
 directionsDisplay.setMap(map);
 
+function inputVehicle(a) {
+  if (a == 1) {
+    console.log("Small Vehicle");
+    document.getElementById("option").innerText = "Small Vehicle";
+    avgMpg = 24.2;
+  }
 
-function inputVehicle(a){
-    if (a == 1){
-        console.log("Small Vehicle")
-        document.getElementById("option").innerText = "Small Vehicle";
-        avgMpg = 24.2;
-    }
+  if (a == 2) {
+    console.log("SUV");
+    document.getElementById("option").innerText = "SUV";
+    avgMpg = 32;
+  }
 
-    if (a == 2){
-        console.log("SUV")
-        document.getElementById("option").innerText = "SUV";
-        avgMpg = 32;
-    }
+  if (a == 3) {
+    console.log("Pickup Truck");
+    document.getElementById("option").innerText = "Pickup Truck";
+    avgMpg = 28.6;
+  }
 
-    if (a == 3){
-        console.log("Pickup Truck");
-        document.getElementById("option").innerText = "Pickup Truck";
-        avgMpg = 28.6;
-    }
+  if (a == 4) {
+    console.log("All Electric");
+    document.getElementById("option").innerText = "All Electric";
+    avgMpg = 136;
+  }
 
-    if (a == 4){
-        console.log("All Electric");
-        document.getElementById("option").innerText = "All Electric";
-        avgMpg = 136;
-    }
+  if (a == 5) {
+    console.log("Hybrid");
+    document.getElementById("option").innerText = "Hybrid";
+    avgMpg = 56;
+  }
 
-    if (a == 5){
-        console.log("Hybrid");
-        document.getElementById("option").innerText = "Hybrid";
-        avgMpg = 56;
-    }
-
-    if (a == 6){
-        console.log("Luxury");
-        document.getElementById("option").innerText = "Luxury";
-        avgMpg = 41;
-    }
-
+  if (a == 6) {
+    console.log("Luxury");
+    document.getElementById("option").innerText = "Luxury";
+    avgMpg = 41;
+  }
 }
-
 
 // Define calcRoute function
 function calcRoute() {
@@ -82,9 +82,9 @@ function calcRoute() {
   directionsService.route(request, function(result, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       let text = result.routes[0].legs[0].distance.text;
-      let replace = text.replace(",", "")
+      let replace = text.replace(",", "");
       let convertToNum = parseInt(replace);
-    //   console.log(convertToNum);
+      //   console.log(convertToNum);
       let carbonEm = (convertToNum / avgMpg) * avgCarbonE;
       //Get distance and time
 
@@ -98,7 +98,12 @@ function calcRoute() {
           " Lbs.</h1></div>"
       );
       document.getElementById("output").style.display = "block";
-      document.getElementById("linked").href="https://www.google.com/maps/dir/?api=1&origin=" + document.getElementById("location-1").value + "&destination=" + document.getElementById("location-2").value + "&travelmode=driving";
+      document.getElementById("linked").href =
+        "https://www.google.com/maps/dir/?api=1&origin=" +
+        document.getElementById("location-1").value +
+        "&destination=" +
+        document.getElementById("location-2").value +
+        "&travelmode=driving";
 
       console.log();
 
@@ -126,7 +131,6 @@ function clearRoute() {
   document.getElementById("location-1").value = "";
   document.getElementById("location-2").value = "";
   directionsDisplay.setDirections({ routes: [] });
-  
 }
 
 // Create autocomplete objects for all inputs

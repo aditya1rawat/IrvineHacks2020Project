@@ -30,25 +30,31 @@
   #map {
     height: 100%;
   }
+
   /* Optional: Makes the sample page fill the window. */
-  html, body {
+  html,
+  body {
     height: 100%;
     margin: 0;
     padding: 0;
   }
+
   .map-control {
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-    font-family: 'Roboto','sans-serif';
+    font-family: 'Roboto', 'sans-serif';
     margin: 10px;
     padding-right: 5px;
     /* Hide the control initially, to prevent it from appearing
        before the map loads. */
     display: none;
   }
+
   /* Display the control once it is inside the map. */
-  #map .map-control { display: block; }
+  #map .map-control {
+    display: block;
+  }
 
   .selector-control {
     font-size: 14px;
@@ -57,62 +63,62 @@
   }
 
   .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
 
-.dropdown:hover #arrow {
-  border-radius: 50%;
-  -webkit-transition: -webkit-transform .25s ease-in-out;
-          transition:         transform .25s ease-in-out;
-}
-#arrow:hover {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
+  .dropdown:hover #arrow {
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+  }
 
+  #arrow:hover {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
 </style>
 
 <div id="style-selector-control" class="map-control">
-  <input type="radio" name="show-hide" id="hide-poi"
-      class="selector-control">
+  <input type="radio" name="show-hide" id="hide-poi" class="selector-control">
   <label for="hide-poi">Hide</label>
-  <input type="radio" name="show-hide" id="show-poi"
-      class="selector-control" checked="checked">
+  <input type="radio" name="show-hide" id="show-poi" class="selector-control" checked="checked">
   <label for="show-poi">Show</label>
 </div>
 
@@ -160,16 +166,17 @@
   <section id="about" class="about-section text-center">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-6 mx-auto">
           <h2 class="text-white mb-4">Find Your Effect On The Environment</h2>
-          <p class="text-white-50">We are in a constant need of transportation. 
-            So how do we monitor how much carbon dioxide we pump into the air? That's where we come in. 
-            By typing in your current location and destination, you can see the amount of carbon emissions in pounds when traveling by car. 
-            After that, you might consider taking that bike ride.</p>
+          <p class="text-white-50">In today's society, everyone on the planet is in constant need of transportation. From cars to trucks to buses. We never consider, however, what impact it has on our environment. Something we often forget is the fact that our planet is reporting record high temperatures and that fires are all over the world. We refuse to accept change, but that change is required if we are to improve the condition of the planet and to preserve the fossil fuels we all so desperately require. Our organization is made to show you your own effects on the planet whenever you use your form of personal temperature. Together, we can change the rising temperatures and get the planet to cool off.</p>
+        </div>
+        <div class="col-lg-6 mx-auto">
+          <img src="img/cars_pollution_large.jpg" class="img-fluid" width="800px" alt="car cars_pollution_large">
         </div>
       </div>
-      <img src="img/cars_pollution_large.jpg" class="img-fluid" width="800px" alt="car cars_pollution_large">
     </div>
+    <br>
+    <br>
     <br>
     <br>
   </section>
@@ -190,7 +197,7 @@
           </div>
         </div>
       </div> -->
-      
+
       <h1 style="text-align: center;"><strong>Try Our Footprint Calculator</strong></h1>
       <br>
       <br>
@@ -247,48 +254,54 @@
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="calcRoute();">Submit</button>
                 <button class="button btn btn-primary mx-auto" type="submit" onclick="clearRoute();">Clear</button>
                 <div class="dropdown">
-                  <button id="option" class="button btn btn-primary mx-auto"><img id="arrow" src="img/dropdown.png" width="15px" height="15px" /></button>
+                  <button id="option" class="button btn btn-primary mx-auto"><img id="arrow" src="img/dropdown.png"
+                      width="15px" height="15px" /></button>
                   <div class="dropdown-content">
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(1);">Small Vehicle</button>
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(2);">SUV</button>
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(3);">Pickup Truck</button>
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(4);">All Electric</button>
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(5);">Hybrid</button>
-                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type="" onclick="inputVehicle(6);">Luxury</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(1);">Small Vehicle</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(2);">SUV</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(3);">Pickup Truck</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(4);">All Electric</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(5);">Hybrid</button>
+                    <button class="button btn btn-primary mx-auto" style="width: 260px;" type=""
+                      onclick="inputVehicle(6);">Luxury</button>
                   </div>
                 </div>
-              
+
 
                 <br>
                 <br>
                 <br>
-                
+
                 <div id="output" class="result-table text-white" style="text-align: center;"></div>
                 <br>
                 <br>
-                <div id="google-map" class="map-container res" style="width: 950px; height: 500px;" >
-                  <iframe src="https://maps.google.com/maps?q=irvine&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                    style="border:0" allowfullscreen></iframe>
-              </div>
+                <div id="google-map" class="map-container res" style="width: 950px; height: 500px;">
+                  <iframe src="https://maps.google.com/maps?q=irvine&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
 
-              <a id = "linked" href="https://maps.google.com/" target="_blank">Get Directions</a>
+                <a id="linked" href="https://maps.google.com/" target="_blank">Get Directions</a>
 
-              
-              </div>
-              
+
               </div>
             </div>
           </div>
-
         </div>
 
       </div>
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-        <div class="col-lg-12 justify-content-center">
-          
-          
-        </div>
+
+    </div>
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-12 justify-content-center">
+
+
       </div>
+    </div>
     </div>
 
     </div>
