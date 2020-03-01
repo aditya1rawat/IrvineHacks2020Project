@@ -57,7 +57,7 @@ function calcRoute() {
           " Lbs.</h1></div>"
       );
       document.getElementById("output").style.display = "block";
-      //document.getElementById("linked").href="http://www.google.com";
+      document.getElementById("linked").href="https://www.google.com/maps/dir/?api=1&origin=" + document.getElementById("location-1").value + "&destination=" + document.getElementById("location-2").value + "&travelmode=driving";
 
       console.log();
 
